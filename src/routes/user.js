@@ -29,7 +29,6 @@ router.post('/users/login',async(req,res)=>{
   await res.send({user,token})
   } catch (e) {
     res.status(400).send(e);
-
   }
 })
 
@@ -95,7 +94,7 @@ if (!isValidOperation) {
     });
 
     await req.user.save()
-    return res.send(req.user);
+    return res.status(200).send(req.user);
 
     //const user =await User.findByIdAndUpdate(_id,req.body,{new:true,runValidators:true});    //takes three args id , update details and options array
 
@@ -106,8 +105,9 @@ if (!isValidOperation) {
 
 router.delete('/users/me',auth,async (req,res)=>{
 
-  const _id=req.user._id;
+
   try {
+      const _id=req.user._id;
       await req.user.remove();
       sendDeleteEmail(req.user.email,req.user.name);
       res.send(req.user);

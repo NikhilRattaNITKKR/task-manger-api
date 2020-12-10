@@ -8,8 +8,6 @@ const sendWelcomeEmail=(email,name)=>{
   from: 'nikhilratta84@gmail.com',
   subject: 'Welcome Aboard',
   text:'I hope you have a wonderful experience '+name,
-}).catch((err)=>{
-  console.log(err);
 })
 }
 
@@ -19,8 +17,6 @@ const sendDeleteEmail= (email,name)=>{
   from: 'nikhilratta84@gmail.com',
   subject: 'We are sad to see you go',
   text:'What went wrong with our service? '+name,
-}).catch((err)=>{
-  console.log(err);
 })
 }
 

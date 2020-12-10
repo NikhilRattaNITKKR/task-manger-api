@@ -39,7 +39,7 @@ try{
     sort
   }
   }).execPopulate() //Task.find({owner:req.user._id}
-        res.send(req.user.tasks)
+        res.status(200).send(req.user.tasks)
 }
 catch(e){
     res.status(500).send(e);
