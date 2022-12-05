@@ -24,15 +24,4 @@ const Task=mongoose.model('Task',taskSchema)
 module.exports=Task;
 
 
-/*var match={};
-  console.log(req.query.completed);
 
-  if(req.query.completed){
-    match.completed=req.query.completed==='true'
-  }
-
-try{
-    const task=await req.user.populate({
-      path:'tasks',
-      match
-    }).execPopulate();*/

@@ -61,20 +61,7 @@ router.get('/users/me',auth,async (req,res)=>{       //we can pass middleware as
   res.send(req.user);
 })
 
-/*
-router.get('/users/:id',async (req,res)=>{
 
-  const _id=req.params.id;
-  try {
-    const user =await User.findById(_id);
-    if (!user) {
-      return res.status(404).send();
-    }
-    res.send(user)
-  } catch (e) {
-    res.status(500).send(e)
-}
-})*/
 
 
 
@@ -96,7 +83,6 @@ if (!isValidOperation) {
     await req.user.save()
     return res.status(200).send(req.user);
 
-    //const user =await User.findByIdAndUpdate(_id,req.body,{new:true,runValidators:true});    //takes three args id , update details and options array
 
   } catch (e) {
     res.status(400).send(e)
@@ -127,14 +113,6 @@ const avatar=multer({        //initializing the multer function with an options 
     }
     cb(undefined,true)
   }
-  /*
-  fileFilter(req,file,cb){       //its a function that runs to fiulter files automatically we get access to request, file objects and a callback function
-    if (!(file.originalname.endsWith('.docx')||file.originalname.endsWith('.doc'))) {  //checks if the file ends with that extension
-      return cb(new Error('please select a document'));                        //first arg of callback is used to throw errors
-    }
-    cb(undefined,true)                                                               //second arg tells whether to accept or reject the file
-  }
-  */
 
 
 })
